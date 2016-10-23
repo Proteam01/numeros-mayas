@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mayan Numbers</string>
+    <string name="button_convert">Convert</string>
+    <string name="label_convert">Enter the number to convert</string>
+    <string name="title_activity_draw_numbers">Mayan Numbers</string>
+</resources>

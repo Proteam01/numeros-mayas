@@ -1,0 +1,13 @@
+.DS_Store
+**/.DS_Store
+**/*.apk
+**/._*
+*.java
+app/build
+build
+local.properties
+.idea
+.gradle
+gradle
+*.iml
+**/*.iml
