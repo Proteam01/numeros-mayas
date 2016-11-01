@@ -2,7 +2,6 @@
 **/.DS_Store
 **/*.apk
 **/._*
-*.java
 app/build
 build
 local.properties
