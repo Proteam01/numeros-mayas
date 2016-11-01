@@ -4,4 +4,7 @@
     <string name="button_convert">Convert</string>
     <string name="label_convert">Enter the number to convert</string>
     <string name="title_activity_draw_numbers">Mayan Numbers</string>
+    <string name="error_when_converting_big_number">The entered number is not supported.</string>
+    <string name="empty_text_convert">The number is empty</string>
+    <string name="ok_message">Ok</string>
 </resources>
