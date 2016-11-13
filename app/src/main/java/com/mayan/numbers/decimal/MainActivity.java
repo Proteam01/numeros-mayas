@@ -1,32 +1,33 @@
 package com.mayan.numbers.decimal;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-
-
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.mayan.numbers.decimal.calculator.DecimalToMayan;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  *
  */
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 	
 	private Button convertButton;
 	private EditText convertText;
 	
 	protected void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		convertButton = (Button)findViewById(R.id.convertButton);
@@ -98,5 +99,26 @@ public class MainActivity extends Activity {
 				.show();
 	}
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_activity_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch(id){
+            case R.id.main_activity_menu_item:
+                exitApplication();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void exitApplication(){
+        this.finishAffinity();
+    }
 
 }

@@ -7,4 +7,6 @@
     <string name="error_when_converting_big_number">Le numéro saisi est pas pris en charge.</string>
     <string name="empty_text_convert">Le nombre est vide.</string>
     <string name="ok_message">Accepter</string>
+    <string name="back_menu_text">Retour</string>
+    <string name="main_activity_menu_item">Quitter</string>
 </resources>

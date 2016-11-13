@@ -7,4 +7,6 @@
     <string name="error_when_converting_big_number">The entered number is not supported.</string>
     <string name="empty_text_convert">The number is empty</string>
     <string name="ok_message">Ok</string>
+    <string name="back_menu_text">Back</string>
+    <string name="main_activity_menu_item">Exit</string>
 </resources>
