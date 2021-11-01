@@ -2,9 +2,10 @@ package com.mayan.numbers.decimal;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ScrollView;
+import androidx.appcompat.app.AppCompatActivity;
 
 
 /**
@@ -23,6 +24,7 @@ public class DrawNumbersActivity extends AppCompatActivity {
 		try {
 			Bundle bundle = this.getIntent().getExtras();
 			int[] numbers = (int[])bundle.get("numbers");
+			ScrollView scrollViewNumbers = (ScrollView) this.findViewById(R.id.scrollViewNumbers);
 			numbersView = new DrawNumbersView(this);
 			numbersView.setNumbersToDraw(numbers);
 			setContentView( numbersView );
