@@ -9,4 +9,7 @@
     <string name="ok_message">Aceptar</string>
     <string name="back_menu_text">Atrás</string>
     <string name="main_activity_menu_item">Salir</string>
+    <string name="main_activity_mayan_to_decimal">A Decimal</string>
+    <string name="number_too_big">El numero introducido es muy grande</string>
+    <string name="dec_number_is" >El numero decimal es:</string>
 </resources>

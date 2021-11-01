@@ -114,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.main_activity_menu_item:
                 exitApplication();
                 break;
+			case R.id.main_activity_decimal_item:
+				openDecimalConvert();
+				break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -122,5 +125,11 @@ public class MainActivity extends AppCompatActivity {
     private void exitApplication(){
         this.finishAffinity();
     }
+
+	private void openDecimalConvert(){
+		Intent intent = new Intent(this, ConvertToDecimalActivity.class );
+		startActivity(intent);
+	}
+
 
 }

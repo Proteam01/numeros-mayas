@@ -17,7 +17,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,6 +25,12 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
+        <activity android:name=".ConvertToDecimalActivity"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/AppTheme"
+            android:label="@string/main_activity_mayan_to_decimal">
+
+        </activity>
 
     </application>
 
