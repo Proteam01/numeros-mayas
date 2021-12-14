@@ -51,7 +51,8 @@ class DrawNumbersActivity : AppCompatActivity() {
     }
 
     private fun returnToMain() {
-        val intent = Intent(applicationContext, MainActivity::class.java)
-        this.applicationContext.startActivity(intent)
+        val intent = Intent(this@DrawNumbersActivity.applicationContext, MainActivity::class.java)
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        this@DrawNumbersActivity.applicationContext.startActivity(intent)
     }
 }

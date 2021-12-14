@@ -152,7 +152,7 @@ class ConvertToDecimalActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    @SuppressLint("NonConstantResourceId")
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         when (id) {
@@ -162,7 +162,7 @@ class ConvertToDecimalActivity : AppCompatActivity() {
     }
 
     private fun returnToMain() {
-        val intent = Intent(applicationContext, MainActivity::class.java)
-        this.applicationContext.startActivity(intent)
+        val intent = Intent(this@ConvertToDecimalActivity.applicationContext, MainActivity::class.java)
+        this@ConvertToDecimalActivity.startActivity(intent)
     }
 }

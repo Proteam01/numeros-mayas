@@ -32,8 +32,8 @@ import com.mayan.numbers.decimal.calculator.DecimalToMayan
         setContentView(R.layout.activity_main)
         convertButton = findViewById(R.id.convertButton)
         convertText = findViewById(R.id.convertText)
-        convertButton.setOnClickListener { view ->
-            convertButtonClicked(view)
+        convertButton.setOnClickListener { _ ->
+            convertButtonClicked()
         }
 
         val bundle = this@MainActivity.intent.extras
@@ -46,7 +46,7 @@ import com.mayan.numbers.decimal.calculator.DecimalToMayan
 
     }
 
-    private fun convertButtonClicked(view: View?) {
+    private fun convertButtonClicked() {
         try {
             val numberText = convertText.text.toString()
             if (numberText.isNotEmpty()) {
