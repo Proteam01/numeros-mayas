@@ -3,16 +3,13 @@ package com.mayan.numbers.decimal
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.EditText
 import android.os.Bundle
-import com.mayan.numbers.decimal.R
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
-import com.mayan.numbers.decimal.MainActivity
-import java.util.*
+import java.util.StringTokenizer
+
 
 class ConvertToDecimalActivity : AppCompatActivity() {
 
@@ -36,8 +33,8 @@ class ConvertToDecimalActivity : AppCompatActivity() {
     private lateinit var b17: Button
     private lateinit var b18: Button
     private lateinit var b19: Button
-    private lateinit var clear_btn: Button
-    private lateinit var equals_btn: Button
+    private lateinit var clearBtn: Button
+    private lateinit var equalsBtn: Button
     private lateinit var decimalNumbersText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,36 +60,36 @@ class ConvertToDecimalActivity : AppCompatActivity() {
         b17 = findViewById(R.id.n17_btn)
         b18 = findViewById(R.id.n18_btn)
         b19 = findViewById(R.id.n19_btn)
-        clear_btn = findViewById(R.id.clear_btn)
-        equals_btn = findViewById(R.id.equals_btn)
+        clearBtn = findViewById(R.id.clear_btn)
+        equalsBtn = findViewById(R.id.equals_btn)
         decimalNumbersText = findViewById(R.id.decimal_numbers_text)
-        decimalNumbersText.setEnabled(false)
+        decimalNumbersText.isEnabled = false
         setActions()
     }
 
     private fun setActions() {
-        clear_btn.setOnClickListener { _ -> decimalNumbersText.setText("") }
-        equals_btn.setOnClickListener { _ -> calculateNumber() }
-        b0.setOnClickListener { _ -> addNumber("0") }
-        b1.setOnClickListener { _ -> addNumber("1") }
-        b2.setOnClickListener { _ -> addNumber("2") }
-        b3.setOnClickListener { _ -> addNumber("3") }
-        b4.setOnClickListener { _ -> addNumber("4") }
-        b5.setOnClickListener { _ -> addNumber("5") }
-        b6.setOnClickListener { _ -> addNumber("6") }
-        b7.setOnClickListener { _ -> addNumber("7") }
-        b8.setOnClickListener { _ -> addNumber("8") }
-        b9.setOnClickListener { _ -> addNumber("9") }
-        b10.setOnClickListener { _ -> addNumber("10") }
-        b11.setOnClickListener { _ -> addNumber("11") }
-        b12.setOnClickListener { _ -> addNumber("12") }
-        b13.setOnClickListener { _ -> addNumber("13") }
-        b14.setOnClickListener { _ -> addNumber("14") }
-        b15.setOnClickListener { _ -> addNumber("15") }
-        b16.setOnClickListener { _ -> addNumber("16") }
-        b17.setOnClickListener { _ -> addNumber("17") }
-        b18.setOnClickListener { _ -> addNumber("18") }
-        b19.setOnClickListener { _ -> addNumber("19") }
+        clearBtn.setOnClickListener { decimalNumbersText.setText("") }
+        equalsBtn.setOnClickListener { calculateNumber() }
+        b0.setOnClickListener { addNumber("0") }
+        b1.setOnClickListener { addNumber("1") }
+        b2.setOnClickListener { addNumber("2") }
+        b3.setOnClickListener { addNumber("3") }
+        b4.setOnClickListener { addNumber("4") }
+        b5.setOnClickListener { addNumber("5") }
+        b6.setOnClickListener { addNumber("6") }
+        b7.setOnClickListener { addNumber("7") }
+        b8.setOnClickListener { addNumber("8") }
+        b9.setOnClickListener { addNumber("9") }
+        b10.setOnClickListener { addNumber("10") }
+        b11.setOnClickListener { addNumber("11") }
+        b12.setOnClickListener { addNumber("12") }
+        b13.setOnClickListener { addNumber("13") }
+        b14.setOnClickListener { addNumber("14") }
+        b15.setOnClickListener { addNumber("15") }
+        b16.setOnClickListener { addNumber("16") }
+        b17.setOnClickListener { addNumber("17") }
+        b18.setOnClickListener { addNumber("18") }
+        b19.setOnClickListener { addNumber("19") }
     }
 
     private fun addNumber(number: String) {
@@ -109,16 +106,14 @@ class ConvertToDecimalActivity : AppCompatActivity() {
             val token = tokenizer.nextToken()
             tokens.add(0, token)
         }
-        var counter = 0
         var result = 0
-        for (token in tokens) {
+        for ((counter, token) in tokens.withIndex()) {
             val numeral = token.toInt()
             result += if (counter == 0) {
                 numeral
             } else {
                 multiplyPosition(counter) * numeral
             }
-            counter++
         }
         showMessage(result)
     }
@@ -154,15 +149,16 @@ class ConvertToDecimalActivity : AppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        when (id) {
+        when (item.itemId) {
             R.id.back_menu -> returnToMain()
         }
         return super.onOptionsItemSelected(item)
     }
 
     private fun returnToMain() {
-        val intent = Intent(this@ConvertToDecimalActivity.applicationContext, MainActivity::class.java)
+        val intent =
+            Intent(this@ConvertToDecimalActivity.applicationContext, MainActivity::class.java)
         this@ConvertToDecimalActivity.startActivity(intent)
     }
+
 }

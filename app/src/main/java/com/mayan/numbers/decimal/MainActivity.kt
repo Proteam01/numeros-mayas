@@ -7,7 +7,6 @@ import android.os.Bundle
 
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 
@@ -21,7 +20,7 @@ import com.mayan.numbers.decimal.calculator.DecimalToMayan
  * status bar and navigation/system bar) with user interaction.
  *
  */
- class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var convertButton: Button
     private lateinit var convertText: EditText
@@ -32,9 +31,7 @@ import com.mayan.numbers.decimal.calculator.DecimalToMayan
         setContentView(R.layout.activity_main)
         convertButton = findViewById(R.id.convertButton)
         convertText = findViewById(R.id.convertText)
-        convertButton.setOnClickListener { _ ->
-            convertButtonClicked()
-        }
+        convertButton.setOnClickListener { convertButtonClicked() }
 
         val bundle = this@MainActivity.intent.extras
         if (bundle != null && bundle.containsKey("errMsg")) {
@@ -57,7 +54,7 @@ import com.mayan.numbers.decimal.calculator.DecimalToMayan
                     val intent = Intent(this, DrawNumbersActivity::class.java)
                     val extras = Bundle()
                     val size = numbers.size
-                    val dec: IntArray =  IntArray(size)
+                    val dec = IntArray(size)
                     for ((i, number) in numbers.withIndex()) {
                         dec[i] = number
                     }

@@ -2,16 +2,15 @@ package com.mayan.numbers.decimal
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import com.mayan.numbers.decimal.R
 import android.os.Bundle
 import android.content.Intent
 import android.app.Activity
 import android.content.Context
 import android.graphics.Canvas
 import android.view.View
-import com.mayan.numbers.decimal.MainActivity
 import java.lang.Exception
-import java.util.*
+import java.util.Hashtable
+
 
 class DrawNumbersView(context: Context?) : View(context) {
     var numbers: IntArray? = null
@@ -22,16 +21,14 @@ class DrawNumbersView(context: Context?) : View(context) {
             val backgroundImage =
                 BitmapFactory.decodeResource(resources, R.drawable.fondo_chichen_2)
             canvas.drawBitmap(backgroundImage, 0f, 0f, null)
-            var count = 0
-            for (number in numbers!!) {
+            for ((count, number) in numbers!!.withIndex()) {
                 val image = numberHash[number.toString()]
                 canvas.drawBitmap(
                     image!!,
-                    (canvas.width / 2 - image.width / 2).toFloat(),
+                    (width / 2 - image.width / 2).toFloat(),
                     (count * image.height + 5).toFloat(),
                     null
                 )
-                count++
             }
         } catch (ex: Exception) {
             ex.printStackTrace()
@@ -43,7 +40,7 @@ class DrawNumbersView(context: Context?) : View(context) {
         this.numbers = numbers
     }
 
-    fun showErrorMessageInMain() {
+    private fun showErrorMessageInMain() {
         val extras = Bundle()
         extras.putInt("errMsg", R.string.error_when_converting_big_number)
         val intent = Intent(context as Activity, MainActivity::class.java)

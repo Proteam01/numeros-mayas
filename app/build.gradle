@@ -9,7 +9,7 @@ android {
         applicationId 'com.mayan.numbers.decimal'
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 7
+        versionCode 10
         versionName "1.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }

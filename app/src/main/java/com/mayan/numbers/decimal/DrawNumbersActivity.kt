@@ -1,15 +1,10 @@
 package com.mayan.numbers.decimal
 
 import androidx.appcompat.app.AppCompatActivity
-import com.mayan.numbers.decimal.DrawNumbersView
 import android.os.Bundle
-import com.mayan.numbers.decimal.R
-import android.widget.ScrollView
 import android.content.Intent
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import com.mayan.numbers.decimal.MainActivity
 import java.lang.Exception
 
 /**
@@ -19,7 +14,7 @@ import java.lang.Exception
  */
 class DrawNumbersActivity : AppCompatActivity() {
 
-    var numbersView: DrawNumbersView? = null
+    private var numbersView: DrawNumbersView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +23,6 @@ class DrawNumbersActivity : AppCompatActivity() {
         try {
             val bundle = this.intent.extras
             val numbers = bundle!!["numbers"] as IntArray?
-            // val scrollViewNumbers = findViewById<View>(R.id.scrollViewNumbers) as ScrollView
             numbersView = DrawNumbersView(this)
             numbersView!!.setNumbersToDraw(numbers)
             setContentView(numbersView)
@@ -43,8 +37,7 @@ class DrawNumbersActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        when (id) {
+        when (item.itemId) {
             R.id.back_menu -> returnToMain()
         }
         return super.onOptionsItemSelected(item)
@@ -52,7 +45,7 @@ class DrawNumbersActivity : AppCompatActivity() {
 
     private fun returnToMain() {
         val intent = Intent(this@DrawNumbersActivity.applicationContext, MainActivity::class.java)
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        this@DrawNumbersActivity.applicationContext.startActivity(intent)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        applicationContext.startActivity(intent)
     }
 }
